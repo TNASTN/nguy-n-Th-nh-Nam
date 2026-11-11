@@ -1,0 +1,44 @@
+{
+  "entities": {
+    "WeddingRsvp": {
+      "title": "WeddingRsvp",
+      "description": "Guest RSVP confirmation for the wedding ceremonies",
+      "type": "object",
+      "properties": {
+        "guestName": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "phoneNumber": { "type": "string", "minLength": 1, "maxLength": 25 },
+        "attendingEvent": { "type": "string", "enum": ["dinner_17", "wedding_18", "both", "declined"] },
+        "guestCount": { "type": "number" },
+        "guestSide": { "type": "string", "enum": ["groom", "bride"] },
+        "note": { "type": "string", "maxLength": 500 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["guestName", "phoneNumber", "attendingEvent", "guestCount", "guestSide", "createdAt"]
+    },
+    "WeddingWish": {
+      "title": "WeddingWish",
+      "description": "Blessing and message from wedding guests",
+      "type": "object",
+      "properties": {
+        "senderName": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "relationship": { "type": "string", "enum": ["friend", "colleague", "family", "other"] },
+        "message": { "type": "string", "minLength": 1, "maxLength": 1000 },
+        "avatarEmoji": { "type": "string", "maxLength": 10 },
+        "likesCount": { "type": "number" },
+        "isPinned": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderName", "relationship", "message", "avatarEmoji", "likesCount", "isPinned", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/wedding_rsvps/{rsvpId}": {
+      "schema": "WeddingRsvp",
+      "description": "Collection of wedding RSVP responses"
+    },
+    "/wedding_wishes/{wishId}": {
+      "schema": "WeddingWish",
+      "description": "Collection of wedding blessings and guest messages"
+    }
+  }
+}

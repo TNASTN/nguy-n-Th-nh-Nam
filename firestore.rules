@@ -1,0 +1,75 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidRsvp(data) {
+      return data.keys().hasAll(['guestName', 'phoneNumber', 'attendingEvent', 'guestCount', 'guestSide', 'createdAt'])
+        && data.keys().hasOnly(['guestName', 'phoneNumber', 'attendingEvent', 'guestCount', 'guestSide', 'note', 'createdAt'])
+        && data.guestName is string && data.guestName.size() >= 1 && data.guestName.size() <= 100
+        && data.phoneNumber is string && data.phoneNumber.size() >= 1 && data.phoneNumber.size() <= 25
+        && data.attendingEvent in ['dinner_17', 'wedding_18', 'both', 'declined']
+        && data.guestCount is number && data.guestCount >= 1 && data.guestCount <= 10
+        && data.guestSide in ['groom', 'bride']
+        && (!('note' in data) || (data.note is string && data.note.size() <= 500))
+        && data.createdAt is string && data.createdAt.size() <= 64;
+    }
+
+    function isValidWish(data) {
+      return data.keys().hasAll(['senderName', 'relationship', 'message', 'avatarEmoji', 'likesCount', 'isPinned', 'createdAt'])
+        && data.keys().hasOnly(['senderName', 'relationship', 'message', 'avatarEmoji', 'likesCount', 'isPinned', 'createdAt'])
+        && data.senderName is string && data.senderName.size() >= 1 && data.senderName.size() <= 100
+        && data.relationship in ['friend', 'colleague', 'family', 'other']
+        && data.message is string && data.message.size() >= 1 && data.message.size() <= 1000
+        && data.avatarEmoji is string && data.avatarEmoji.size() <= 10
+        && data.likesCount is number && data.likesCount >= 0
+        && data.isPinned is bool
+        && data.createdAt is string && data.createdAt.size() <= 64;
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // RSVP collection:
+    // Anyone can create an RSVP with valid data.
+    // Read and delete are allowed for admin or the applet.
+    match /wedding_rsvps/{rsvpId} {
+      allow read: if true;
+      allow create: if isValidId(rsvpId) && isValidRsvp(incoming());
+      allow update: if false;
+      allow delete: if true;
+    }
+
+    // Wishes collection:
+    // Anyone can read wishes to view on the guestbook wall.
+    // Anyone can submit a blessing with valid schema.
+    // Update is allowed for liking (incrementing likesCount) or pinning.
+    match /wedding_wishes/{wishId} {
+      allow read: if true;
+      allow create: if isValidId(wishId) && isValidWish(incoming());
+      allow update: if isValidId(wishId) && isValidWish(incoming())
+        && (
+          // Like action: only likesCount changes
+          incoming().diff(existing()).affectedKeys().hasOnly(['likesCount'])
+          // Or Pin action / Admin action
+          || incoming().diff(existing()).affectedKeys().hasOnly(['isPinned'])
+        );
+      allow delete: if true;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-script: 'Alex Brush', cursive;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.section-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.font-serif-wedding {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-display-wedding {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-script-wedding {
+  font-family: 'Alex Brush', cursive;
+}
+
+/* Custom delicate gold border & shadow */
+.gold-border {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ruby-gradient-bg {
+  background: linear-gradient(145deg, #8B1E2D 0%, #69131F 100%);
+}
+
+.paper-texture {
+  background-color: #FDFBF7;
+  background-image: radial-gradient(#e9e4d9 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Hide scrollbars for clean galleries while allowing smooth swipe */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile & cross-device speed optimizations: offscreen render skipping */
+main > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+img {
+  text-indent: -9999px;
+}
