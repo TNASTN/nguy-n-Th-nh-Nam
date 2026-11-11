@@ -198,7 +198,6 @@ export default function App() {
         lang={lang}
         onToggleLang={toggleLanguage}
         onOpenAdmin={() => setIsAdminOpen(true)}
-        onOpenGiftBox={() => setIsGiftBoxOpen(true)}
       />
 
       {/* 4. Main Body Content Sections */}
@@ -265,7 +264,6 @@ export default function App() {
       {/* 7. Mobile Ergonomic Thumb Navigation Bar (< 15% viewport) */}
       <FloatingMobileNav
         lang={lang}
-        onOpenGiftBox={() => setIsGiftBoxOpen(true)}
       />
 
       {/* 8. PWA & Offline Indicator */}

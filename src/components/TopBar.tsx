@@ -6,14 +6,13 @@ interface TopBarProps {
   lang: 'vi' | 'en';
   onToggleLang: () => void;
   onOpenAdmin: () => void;
-  onOpenGiftBox: () => void;
+  onOpenGiftBox?: () => void;
 }
 
 export const TopBar: React.FC<TopBarProps> = ({
   lang,
   onToggleLang,
   onOpenAdmin,
-  onOpenGiftBox
 }) => {
   return (
     <header className="sticky top-0 z-30 w-full bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#E8DCC4] px-4 sm:px-8 py-3.5 transition-all">
@@ -45,7 +44,7 @@ export const TopBar: React.FC<TopBarProps> = ({
           </a>
         </nav>
 
-        {/* Zone 3: Actions (Language toggle, Gift Box button, Admin entrance) */}
+        {/* Zone 3: Actions (Language toggle, Admin entrance) */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           {/* Language Switcher */}
           <button
@@ -55,14 +54,6 @@ export const TopBar: React.FC<TopBarProps> = ({
           >
             <Globe className="w-3.5 h-3.5 text-[#8B1E2D]" />
             <span className="uppercase">{lang}</span>
-          </button>
-
-          {/* Gift Box button */}
-          <button
-            onClick={onOpenGiftBox}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-[#D4AF37] text-xs font-medium text-[#8B1E2D] bg-[#FDFBF7] hover:bg-[#F4EFE6] transition-colors whitespace-nowrap shrink-0"
-          >
-            <span>{lang === 'vi' ? 'Mừng Cưới' : 'Gift Box'}</span>
           </button>
 
           {/* Admin PIN Modal Trigger */}

@@ -1,15 +1,13 @@
 import React from 'react';
-import { Calendar, Navigation, CheckSquare, Gift } from 'lucide-react';
+import { Calendar, Navigation, CheckSquare, MessageSquareHeart } from 'lucide-react';
 import { TRANSLATIONS } from '../data/weddingData';
 
 interface FloatingMobileNavProps {
   lang: 'vi' | 'en';
-  onOpenGiftBox: () => void;
+  onOpenGiftBox?: () => void;
 }
 
-export const FloatingMobileNav: React.FC<FloatingMobileNavProps> = ({ lang, onOpenGiftBox }) => {
-  const t = TRANSLATIONS[lang];
-
+export const FloatingMobileNav: React.FC<FloatingMobileNavProps> = ({ lang }) => {
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-md border-t border-[#E8DCC4] shadow-lg">
       <div className="grid grid-cols-4 items-center h-16 px-2 max-w-lg mx-auto">
@@ -47,16 +45,16 @@ export const FloatingMobileNav: React.FC<FloatingMobileNavProps> = ({ lang, onOp
           </span>
         </a>
 
-        {/* Gift Box */}
-        <button
-          onClick={onOpenGiftBox}
+        {/* Lời Chúc (Thay thế tạm thời cho Mừng Cưới) */}
+        <a
+          href="#guestbook"
           className="flex flex-col items-center justify-center min-h-[44px] text-stone-600 hover:text-[#8B1E2D] active:scale-95 transition-transform"
         >
-          <Gift className="w-5 h-5 text-[#D4AF37]" />
+          <MessageSquareHeart className="w-5 h-5 text-[#8B1E2D]" />
           <span className="text-[10px] font-medium tracking-tight mt-1">
-            {lang === 'vi' ? 'Mừng Cưới' : 'Gift'}
+            {lang === 'vi' ? 'Lời Chúc' : 'Wishes'}
           </span>
-        </button>
+        </a>
 
       </div>
     </nav>
