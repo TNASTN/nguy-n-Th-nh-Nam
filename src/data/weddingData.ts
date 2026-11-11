@@ -58,7 +58,7 @@ export const WEDDING_DATA = {
     roleVi: 'Cô Dâu (Út Nữ)',
     roleEn: 'The Bride',
     parentsVi: {
-      father: 'Ông Lê Đoàn Khôi',
+      father: 'Ông Lê Doãn Khôi',
       mother: 'Bà Huỳnh Thị Hồng',
       address: 'Thôn Giang Phú, Xã Tam Giang, Huyện Krông Năng, Đắk Lắk'
     },

@@ -25,16 +25,13 @@ export const TopBar: React.FC<TopBarProps> = ({
           {WEDDING_DATA.groom.shortName} <span className="text-[#D4AF37] font-normal">&</span> {WEDDING_DATA.bride.shortName}
         </a>
 
-        {/* Zone 2: 4-5 Clean single-line text navigation links */}
+        {/* Zone 2: Clean single-line text navigation links */}
         <nav className="hidden md:flex items-center gap-7 text-xs sm:text-sm font-medium text-stone-700">
           <a href="#events" className="hover:text-[#8B1E2D] transition-colors whitespace-nowrap shrink-0">
             {lang === 'vi' ? 'Lịch Trình' : 'Itinerary'}
           </a>
           <a href="#location" className="hover:text-[#8B1E2D] transition-colors whitespace-nowrap shrink-0">
             {lang === 'vi' ? 'Bản Đồ' : 'Location'}
-          </a>
-          <a href="#gallery" className="hover:text-[#8B1E2D] transition-colors whitespace-nowrap shrink-0">
-            {lang === 'vi' ? 'Album Ảnh' : 'Gallery'}
           </a>
           <a href="#rsvp" className="hover:text-[#8B1E2D] transition-colors whitespace-nowrap shrink-0">
             {lang === 'vi' ? 'Xác Nhận Tham Dự' : 'RSVP'}

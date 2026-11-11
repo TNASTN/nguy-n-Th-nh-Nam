@@ -211,8 +211,8 @@ export default function App() {
         {/* Schedule, Events & Google Maps Navigation */}
         <EventItinerary lang={lang} />
 
-        {/* High-Resolution Photo Gallery & Lightbox */}
-        <GalleryLightbox lang={lang} />
+        {/* High-Resolution Photo Gallery & Lightbox (Tạm thời ẩn theo yêu cầu) */}
+        {/* <GalleryLightbox lang={lang} /> */}
 
         {/* Online RSVP Confirmation Form */}
         <RsvpSection lang={lang} />
