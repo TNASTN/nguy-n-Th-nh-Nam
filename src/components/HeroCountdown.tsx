@@ -91,8 +91,8 @@ export const HeroCountdown: React.FC<HeroCountdownProps> = ({ lang }) => {
                 <span className="text-xs text-stone-500 italic">({WEDDING_DATA.lunarDateVi})</span>
               </div>
               <div className="flex items-center justify-center lg:justify-start gap-2 text-stone-600 text-xs sm:text-sm">
-                <MapPin className="w-4 h-4 text-[#8B1E2D]" />
-                <span>Tư Gia Nhà Trai: 78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk</span>
+                <MapPin className="w-4 h-4 text-[#8B1E2D] shrink-0" />
+                <span>Lễ Báo Hỷ: Nhà Hàng Thu Hiền — 18 Bác Ái, Thủ Đức, Hồ Chí Minh, Vietnam</span>
               </div>
             </div>
 
@@ -162,7 +162,7 @@ export const HeroCountdown: React.FC<HeroCountdownProps> = ({ lang }) => {
                       Trăm Năm Tình Viên Mãn
                     </p>
                     <p className="text-xs text-white/90 font-light mt-0.5">
-                      Thành Nam &amp; Tú Uyên · 18.11.2026
+                      Thành Nam &amp; Tú Uyên · 28.11.2026
                     </p>
                   </div>
                 </div>

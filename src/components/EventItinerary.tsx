@@ -47,9 +47,9 @@ export const EventItinerary: React.FC<EventItineraryProps> = ({ lang }) => {
           </p>
         </div>
 
-        {/* 2 Event Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
-          {WEDDING_DATA.events.map((evt, idx) => {
+        {/* Event Card(s) */}
+        <div className={`${WEDDING_DATA.events.length === 1 ? 'max-w-2xl mx-auto' : 'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12'} mb-16`}>
+          {WEDDING_DATA.events.map((evt) => {
             const isMainEvent = evt.id === 'solemn-ceremony';
             return (
               <div
@@ -63,7 +63,7 @@ export const EventItinerary: React.FC<EventItineraryProps> = ({ lang }) => {
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${
                     isMainEvent ? 'bg-[#8B1E2D] text-white' : 'bg-[#E8DCC4] text-stone-800'
                   }`}>
-                    {isMainEvent ? 'Sự Kiện Chính' : 'Tiệc Thân Mật'}
+                    {isMainEvent ? 'Lễ Báo Hỷ' : 'Tiệc Thân Mật'}
                   </span>
                   <span className="text-xs text-stone-500 italic">
                     {evt.lunarDateVi}
@@ -147,11 +147,11 @@ export const EventItinerary: React.FC<EventItineraryProps> = ({ lang }) => {
 
                   <a
                     href={createGoogleCalendarUrl(
-                      `Đám Cưới Thành Nam & Tú Uyên - ${evt.titleVi}`,
+                      `Lễ Báo Hỷ Thành Nam & Tú Uyên - Nhà Hàng Thu Hiền`,
                       `${evt.subtitleVi}. Địa chỉ: ${evt.addressVi}`,
-                      evt.addressVi,
-                      idx === 0 ? '20261117T170000' : '20261118T090000',
-                      idx === 0 ? '20261117T210000' : '20261118T140000'
+                      `Nhà Hàng Thu Hiền, ${evt.addressVi}`,
+                      '20261128T183000',
+                      '20261128T220000'
                     )}
                     target="_blank"
                     rel="noreferrer"
@@ -175,15 +175,15 @@ export const EventItinerary: React.FC<EventItineraryProps> = ({ lang }) => {
                 <span>Bản Đồ Chỉ Đường Chi Tiết</span>
               </div>
               <h3 className="font-display-wedding text-2xl text-stone-900 mt-1">
-                Tư Gia Nhà Trai — 78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk
+                Lễ Báo Hỷ: Nhà Hàng Thu Hiền
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 mt-0.5">
-                78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk, Vietnam
+                18 Bác Ái, Thủ Đức, Hồ Chí Minh, Vietnam
               </p>
             </div>
 
             <a
-              href="https://maps.google.com/?q=78+Th%C3%B4n+Ti%E1%BA%BFn+%C4%90%C3%B4ng,+Ea+Kn%E1%BB%91p,+%C4%90%E1%BA%AFk+L%E1%BA%AFk,+Vietnam"
+              href="https://maps.google.com/?q=Nh%C3%A0+H%C3%A0ng+Thu+Hi%E1%BB%81n,+18+B%C3%A1c+%C3%81i,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#8B1E2D] hover:bg-[#721522] text-white text-xs sm:text-sm font-semibold shadow transition-all whitespace-nowrap"
@@ -197,19 +197,19 @@ export const EventItinerary: React.FC<EventItineraryProps> = ({ lang }) => {
           {/* Interactive Google Maps Embed */}
           <div className="aspect-[16/9] sm:aspect-[21/9] w-full rounded-xl overflow-hidden border border-[#E8DCC4] relative shadow-inner bg-stone-100">
             <iframe
-              title="Bản đồ vị trí đám cưới tại 78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk"
+              title="Bản đồ vị trí Lễ Báo Hỷ tại Nhà Hàng Thu Hiền, 18 Bác Ái, Thủ Đức, Hồ Chí Minh, Vietnam"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
               referrerPolicy="no-referrer-when-downgrade"
-              src="https://maps.google.com/maps?q=78+Th%C3%B4n+Ti%E1%BA%BFn+%C4%90%C3%B4ng,+Ea+Kn%E1%BB%91p,+%C4%90%E1%BA%AFk+L%E1%BA%AFk,+Vietnam&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Nh%C3%A0+H%C3%A0ng+Thu+Hi%E1%BB%81n,+18+B%C3%A1c+%C3%81i,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+H%E1%BB%93+Ch%C3%AD+Minh,+Vietnam&t=&z=16&ie=UTF8&iwloc=&output=embed"
             />
           </div>
 
           <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-stone-500 gap-2">
-            <span>💡 Mẹo: Quý khách đi theo Quốc Lộ 26 đến thị trấn Ea Knốp, rẽ vào 78 Thôn Tiến Đông.</span>
+            <span>💡 Mẹo: Quý khách di chuyển đến Nhà Hàng Thu Hiền tại số 18 Bác Ái, Thủ Đức, Hồ Chí Minh.</span>
             <span className="font-medium text-stone-700">Hotline đón tiếp: 098.765.4321</span>
           </div>
         </div>

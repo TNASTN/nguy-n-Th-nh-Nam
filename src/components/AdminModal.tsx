@@ -179,7 +179,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose, lang })
       i + 1,
       `"${r.guestName.replace(/"/g, '""')}"`,
       `"${r.phoneNumber}"`,
-      r.attendingEvent === 'wedding_18' ? 'Tiệc Cưới Chính (18/11)' : r.attendingEvent === 'dinner_17' ? 'Cơm Thân Mật (17/11)' : r.attendingEvent === 'both' ? 'Cả Hai Buổi' : 'Không Tham Dự',
+      r.attendingEvent === 'wedding_18' ? 'Lễ Báo Hỷ (28/11)' : r.attendingEvent === 'dinner_17' ? 'Cơm Thân Mật' : r.attendingEvent === 'both' ? 'Tham Dự Đầy Đủ' : 'Không Tham Dự',
       r.guestCount,
       r.guestSide === 'groom' ? 'Nhà Trai' : 'Nhà Gái',
       `"${(r.note || '').replace(/"/g, '""')}"`,
@@ -291,15 +291,15 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose, lang })
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#FDFBF7] border border-[#E8DCC4] text-center">
-                <span className="block text-[11px] text-stone-500 uppercase tracking-wider">Khách Tiệc 18/11</span>
+                <span className="block text-[11px] text-stone-500 uppercase tracking-wider">Khách Báo Hỷ 28/11</span>
                 <span className="block font-display-wedding text-2xl font-bold text-emerald-700 tabular-nums mt-0.5">
                   {totalWeddingGuests}
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#FDFBF7] border border-[#E8DCC4] text-center">
-                <span className="block text-[11px] text-stone-500 uppercase tracking-wider">Khách Cơm 17/11</span>
+                <span className="block text-[11px] text-stone-500 uppercase tracking-wider">Tổng Khách Tham Dự</span>
                 <span className="block font-display-wedding text-2xl font-bold text-amber-700 tabular-nums mt-0.5">
-                  {totalDinnerGuests}
+                  {totalAttendingGuests}
                 </span>
               </div>
               <div className="p-3.5 rounded-xl bg-[#FDFBF7] border border-[#E8DCC4] text-center">
@@ -413,7 +413,7 @@ export const AdminModal: React.FC<AdminModalProps> = ({ isOpen, onClose, lang })
                                   ? 'bg-indigo-50 text-indigo-700'
                                   : 'bg-rose-50 text-rose-700'
                               }`}>
-                                {r.attendingEvent === 'wedding_18' ? 'Tiệc cưới 18/11' : r.attendingEvent === 'dinner_17' ? 'Cơm thân mật 17/11' : r.attendingEvent === 'both' ? 'Cả hai buổi' : 'Không tham dự'}
+                                {r.attendingEvent === 'wedding_18' ? 'Lễ Báo Hỷ 28/11' : r.attendingEvent === 'dinner_17' ? 'Cơm thân mật' : r.attendingEvent === 'both' ? 'Tham dự đầy đủ' : 'Không tham dự'}
                               </span>
                             </td>
                             <td className="py-2 px-3 text-center font-bold tabular-nums">{r.guestCount}</td>

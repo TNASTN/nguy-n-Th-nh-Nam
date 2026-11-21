@@ -36,11 +36,11 @@ export const Footer: React.FC<{ lang: 'vi' | 'en' }> = ({ lang }) => {
           </p>
         </div>
 
-        {/* Family Representatives Grid */}
+        {/* Family Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto py-6 border-y border-[#D4AF37]/20 text-xs sm:text-sm">
           <div className="space-y-1 text-stone-300">
             <p className="text-[#D4AF37] font-semibold uppercase tracking-wider text-xs">
-              Đại Diện Nhà Trai
+              Nhà Trai
             </p>
             <p className="font-medium text-white">{WEDDING_DATA.groom.parentsVi.father}</p>
             <p className="font-medium text-white">{WEDDING_DATA.groom.parentsVi.mother}</p>
@@ -49,7 +49,7 @@ export const Footer: React.FC<{ lang: 'vi' | 'en' }> = ({ lang }) => {
 
           <div className="space-y-1 text-stone-300">
             <p className="text-[#D4AF37] font-semibold uppercase tracking-wider text-xs">
-              Đại Diện Nhà Gái
+              Nhà Gái
             </p>
             <p className="font-medium text-white">{WEDDING_DATA.bride.parentsVi.father}</p>
             <p className="font-medium text-white">{WEDDING_DATA.bride.parentsVi.mother}</p>
@@ -58,12 +58,12 @@ export const Footer: React.FC<{ lang: 'vi' | 'en' }> = ({ lang }) => {
         </div>
 
         {/* Date and Address summary */}
-        <div className="space-y-2 text-xs text-stone-400 max-w-md mx-auto">
+        <div className="space-y-2 text-xs text-stone-400 max-w-lg mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
-            <span>78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk, Vietnam</span>
+            <MapPin className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
+            <span>Lễ Báo Hỷ: Nhà Hàng Thu Hiền · 18 Bác Ái, Thủ Đức, Hồ Chí Minh, Vietnam</span>
           </div>
-          <p>Hôn lễ cử hành: 09:00 - Khai tiệc: 11:00 · Thứ Tư, ngày 18.11.2026</p>
+          <p>Đón khách: 18:30 - Khai tiệc: 19:00 · Thứ Bảy, ngày 28.11.2026</p>
         </div>
 
         <div className="pt-6 text-[11px] text-stone-500">

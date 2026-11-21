@@ -60,7 +60,7 @@ export const EnvelopeModal: React.FC<EnvelopeModalProps> = ({ onOpen, lang }) =>
 
             {/* Couple Grand Typography */}
             <p className="font-serif-wedding italic text-lg sm:text-xl text-[#F8E7C0]">
-              Trân trọng báo tin Lễ Tân Hôn
+              Trân trọng kính mời Lễ Báo Hỷ
             </p>
             <h1 className="font-display-wedding text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-wide my-3 text-white">
               {WEDDING_DATA.groom.shortName} <span className="text-[#D4AF37] font-serif-wedding font-normal">&</span> {WEDDING_DATA.bride.shortName}

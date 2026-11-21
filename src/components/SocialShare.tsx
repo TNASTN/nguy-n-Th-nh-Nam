@@ -17,7 +17,7 @@ export const SocialShare: React.FC<SocialShareProps> = ({ lang }) => {
       try {
         await navigator.share({
           title: 'Thành Nam ❤️ Tú Uyên',
-          text: 'Thành Nam ❤️ Tú Uyên - Trân trọng kính mời quý khách tham dự lễ tân hôn và tiệc cưới ngày 18.11.2026 tại 78 Thôn Tiến Đông, Ea Knốp, Đắk Lắk!',
+          text: 'Thành Nam ❤️ Tú Uyên - Trân trọng kính mời quý khách tham dự Lễ Báo Hỷ ngày 28.11.2026 tại Nhà Hàng Thu Hiền, 18 Bác Ái, Thủ Đức, Hồ Chí Minh, Vietnam!',
           url: currentUrl,
         });
         return;

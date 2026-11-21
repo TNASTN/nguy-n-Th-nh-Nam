@@ -178,8 +178,6 @@ export const RsvpSection: React.FC<RsvpSectionProps> = ({ lang }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     { id: 'wedding_18', label: t.wedding18Option },
-                    { id: 'dinner_17', label: t.dinner17Option },
-                    { id: 'both', label: t.bothOption },
                     { id: 'declined', label: t.declinedOption },
                   ].map((option) => (
                     <label
